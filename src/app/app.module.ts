@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { EventsAppComponent } from './events-app.component';
 import { EventsListComponent } from './events/events-list.component';
 import { EventThumbNailComponent } from './events/events-thumbnail.component';
+import { NavBarComponent } from './nav/navbar.component';
 
 @NgModule({
   declarations: [
     EventsAppComponent,
     EventsListComponent,
-    EventThumbNailComponent
+    EventThumbNailComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,

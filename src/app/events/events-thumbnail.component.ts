@@ -22,6 +22,11 @@ import { Component, Input, Output, EventEmitter} from '@angular/core';
         `]
 })
 
+/**
+ * {{}} -> enterpolasyon işareti: sadece ekranda gözükmesini sağlar
+ * [] -> dom elementine bağlar(Property binding)
+ */
+
 export class EventThumbNailComponent {
     @Input() event: any //Parentten childa veri gönderimi
 
