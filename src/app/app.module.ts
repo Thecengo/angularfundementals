@@ -8,6 +8,12 @@ import { EventThumbNailComponent } from './events/events-thumbnail.component';
 import { NavBarComponent } from './nav/navbar.component';
 import { EventService } from './events/shared/event.service';
 import { ToastrService } from './common/toastr.service';
+import { EventDetailsComponent } from './events/event-details/event-details.component';
+import { RouterModule } from '@angular/router';
+import { appRoutes } from './routes';
+import { CreateEventComponent } from './events/create-event.component';
+import { Error404Component } from './errors/404.component';
+import { EventRouteActivator } from './events/event-details/event-route-activator.service';
 
 @NgModule({
   declarations: [
@@ -15,14 +21,18 @@ import { ToastrService } from './common/toastr.service';
     EventsListComponent,
     EventThumbNailComponent,
     NavBarComponent,
+    EventDetailsComponent,
+    CreateEventComponent,
+    Error404Component
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [ 
     EventService,
-    ToastrService
+    ToastrService,
+    EventRouteActivator
   ],
   bootstrap: [EventsAppComponent]
 })
