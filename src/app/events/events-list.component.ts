@@ -15,17 +15,13 @@ declare let toastr
                </event-thumbnail>
             </div>
         </div>
-       
-         <button class = "btn btn-primary" (click)= "thumbnail.logFoo()">
-             Log me something
-         </button>
     </div>
     ` 
 })
 
 export class EventsListComponent implements OnInit{
 
-    events: any[];
+    events: any;
     //app.moduledeki provider sayesinde buraya inject edileceğini biliyor.
     constructor(private eventService : EventService, private toastr: ToastrService) {
         
@@ -35,10 +31,11 @@ export class EventsListComponent implements OnInit{
         console.log('received', data);
     }
 
-    ngOnInit(): void {
+    ngOnInit(){
         //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-        //Add 'implements OnInit' to the class.
-        this.events = this.eventService.getEvents();
+         this.eventService.getEvents().subscribe(events => {
+            this.events = events;
+        });
     }
 
     handleThumbnailClick(eventName) {
