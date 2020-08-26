@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EventService } from './shared/event.service';
 import { ToastrService } from '../common/toastr.service';
+import { ActivatedRoute } from '@angular/router';
 
 declare let toastr
 
@@ -23,7 +24,9 @@ export class EventsListComponent implements OnInit{
 
     events: any;
     //app.moduledeki provider sayesinde buraya inject edileceğini biliyor.
-    constructor(private eventService : EventService, private toastr: ToastrService) {
+    constructor(private eventService : EventService
+        , private toastr: ToastrService
+        , private route: ActivatedRoute) {
         
     }
     //Child componentten alınan veriyi işler 
@@ -32,10 +35,7 @@ export class EventsListComponent implements OnInit{
     }
 
     ngOnInit(){
-        //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-         this.eventService.getEvents().subscribe(events => {
-            this.events = events;
-        });
+        this.events = this.route.snapshot.data['events'];
     }
 
     handleThumbnailClick(eventName) {
