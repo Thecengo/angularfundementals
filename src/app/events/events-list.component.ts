@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { EventService } from './shared/event.service';
 import { ToastrService } from '../common/toastr.service';
 import { ActivatedRoute } from '@angular/router';
+import { IEvent } from './shared';
 
 declare let toastr
 
@@ -22,7 +23,7 @@ declare let toastr
 
 export class EventsListComponent implements OnInit{
 
-    events: any;
+    events: IEvent[];
     //app.moduledeki provider sayesinde buraya inject edileceğini biliyor.
     constructor(private eventService : EventService
         , private toastr: ToastrService

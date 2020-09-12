@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter} from '@angular/core';
-import { ThrowStmt } from '@angular/compiler';
+import { IEvent } from './shared';
+
 
 //Child Component in EventList component
 @Component({
@@ -40,7 +41,7 @@ import { ThrowStmt } from '@angular/compiler';
  */
 
 export class EventThumbNailComponent {
-    @Input() event: any //Parentten childa veri gönderimi
+    @Input() event: IEvent //Parentten childa veri gönderimi
 
     someProperty : any = 'somePropery'
 
